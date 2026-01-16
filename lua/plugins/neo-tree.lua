@@ -69,11 +69,10 @@ return {
       window = {
         mappings = {
           ["h"] = "close_node",
-          ["n"] = "next_source",
-          ["e"] = "prev_source",
+          ["n"] = "noop",
+          ["e"] = "noop",
           ["i"] = "open",
-          ["<C-n>"] = "list_down",
-          ["<C-e>"] = "list_up",
+          ["l"] = "show_file_details",
           ["<space>"] = "none",
           ["Y"] = {
             function(state)
