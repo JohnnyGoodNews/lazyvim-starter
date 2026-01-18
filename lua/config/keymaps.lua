@@ -12,22 +12,13 @@ if vim_config_exists and vim.g.load_vimrc ~= false then
   print("Loaded existing .vimrc for compatibility")
 end
 
--- vim.keymap.set({ "n", "x", "o" }, "t", function()
---   require("flash").jump()
--- end)
-vim.keymap.set({ "n", "x", "o" }, "t", "f")
-vim.keymap.set({ "n", "x", "o" }, "T", "F")
-vim.keymap.set({ "n", "x", "o" }, "k", "t")
-vim.keymap.set({ "n", "x", "o" }, "K", "T")
-vim.keymap.set({ "n", "x", "o" }, ";", ";")
-vim.keymap.set({ "n", "x", "o" }, ",", ",")
-
 -- TODO: 2026-01-16: these should be fixed soon by fix/keymap-multikey in blink.cmp
 vim.keymap.set("i", "<C-m>", "<CR>") --not effective
 vim.keymap.set("i", "<CR>", "<CR>")
 vim.keymap.set("i", "<C-i>", "<Tab>") --not effective
 vim.keymap.set("i", "<Tab>", "<Tab>")
 
+-- NOTE: just for testing
 -- vim.keymap.set("i", "<C-i>", " C-i")
 -- vim.keymap.set("i", "<Tab>", " Tab")
 -- vim.keymap.set("i", "<C-m>", " C-m")
@@ -36,6 +27,16 @@ vim.keymap.set("i", "<Tab>", "<Tab>")
 -- vim.keymap.set("n", "<Tab>", "<CMD>lua print([[ Tab is pressed ]])<CR>")
 -- vim.keymap.set("n", "<C-m>", "<CMD>lua print([[ C-m is pressed ]])<CR>")
 -- vim.keymap.set("n", "<CR>", "<CMD>lua print([[ CR is pressed ]])<CR>")
+
+-- NOTE: forcefully overwrite flash.nvim here
+-- vim.keymap.set({ "n", "x", "o" }, "t", "f")
+-- vim.keymap.set({ "n", "x", "o" }, "T", "F")
+-- vim.keymap.set({ "n", "x", "o" }, "k", "t")
+-- vim.keymap.set({ "n", "x", "o" }, "K", "T")
+-- vim.keymap.set({ "n", "x", "o" }, ";", ";")
+-- vim.keymap.set({ "n", "x", "o" }, ",", ",")
+
+-- TODO: reclaim 'K' in normal mode from lsp (i.e. edit lsp-init.lua from lazyvim)
 
 local map = vim.keymap.set
 

@@ -1,23 +1,33 @@
-return {
-  "folke/flash.nvim",
-  event = "VeryLazy",
-  vscode = true,
-  ---@type Flash.Config
-  opts = {
-    modes = {
-      char = {
-        -- jump_labels = true,
-        keys = {
-          ["f"] = "t",
-          ["F"] = "T",
-          ["t"] = "k",
-          ["T"] = "K",
-          ";",
-          ",",
-        },
+local opts = {
+  modes = {
+    char = {
+      -- jump_labels = true,
+      multi_line = false,
+      keys = {
+        ["f"] = "t",
+        ["F"] = "T",
+        ["t"] = "k",
+        ["T"] = "K",
+        [";"] = ";",
+        [","] = ",",
       },
     },
   },
+}
+
+return {
+  "folke/flash.nvim",
+  -- event = "VeryLazy",
+  event = { "BufReadPre", "BufNewFile" },
+  vscode = true,
+  ---@type Flash.Config
+  opts = opts,
+  -- super late initialization to overwrite keymaps
+  config = function()
+    vim.schedule(function()
+      require("flash").setup(opts)
+    end)
+  end,
   -- stylua: ignore
   keys = {
     {
