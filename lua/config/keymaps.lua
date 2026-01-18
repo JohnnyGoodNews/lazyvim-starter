@@ -12,10 +12,20 @@ if vim_config_exists and vim.g.load_vimrc ~= false then
   print("Loaded existing .vimrc for compatibility")
 end
 
+-- vim.keymap.set({ "n", "x", "o" }, "t", function()
+--   require("flash").jump()
+-- end)
+vim.keymap.set({ "n", "x", "o" }, "t", "f")
+vim.keymap.set({ "n", "x", "o" }, "T", "F")
+vim.keymap.set({ "n", "x", "o" }, "k", "t")
+vim.keymap.set({ "n", "x", "o" }, "K", "T")
+vim.keymap.set({ "n", "x", "o" }, ";", ";")
+vim.keymap.set({ "n", "x", "o" }, ",", ",")
+
 -- TODO: 2026-01-16: these should be fixed soon by fix/keymap-multikey in blink.cmp
--- vim.keymap.set("i", "<C-m>", "<BS>") --not effective
+vim.keymap.set("i", "<C-m>", "<CR>") --not effective
 vim.keymap.set("i", "<CR>", "<CR>")
--- vim.keymap.set("i", "<C-i>", "<Right>") --not effective
+vim.keymap.set("i", "<C-i>", "<Tab>") --not effective
 vim.keymap.set("i", "<Tab>", "<Tab>")
 
 -- vim.keymap.set("i", "<C-i>", " C-i")
