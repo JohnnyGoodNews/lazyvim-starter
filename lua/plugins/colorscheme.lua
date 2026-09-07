@@ -70,7 +70,7 @@ return {
   {
     "LazyVim/LazyVim",
     opts = {
-      colorscheme = "github_light_default",
+      colorscheme = "github_light_colorblind",
       -- colorscheme = "zenwritten",
     },
   },
